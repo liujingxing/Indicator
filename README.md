@@ -8,8 +8,22 @@
 
 **3、支持`orientation/gravity/layoutDirection/padding`等系统内置属性**
 
+# 2、依赖
 
-# 2、xml属性介绍
+```gradle
+allprojects {
+    repositories {
+        maven { url "https://jitpack.io" }
+    }
+}
+
+dependencies {
+    implementation 'com.github.liujingxing:Indicator:1.0.0'  
+}
+```
+
+
+# 3、xml属性介绍
 
 
 ```xml
@@ -36,7 +50,7 @@
     app:slider_count="5" />                   //滑块数量       
 ```
 
-# 3、IndicatorView类方法介绍
+# 4、IndicatorView类方法介绍
 
 ```java
 setGravity(Int)    //对齐方式，左中右、上中下对齐
@@ -56,10 +70,13 @@ setSecondaryCheckedSize(Float) //次方向滑块选中大小，orientation为hor
 scrollSlider(Int,Float)  //滑动滑块，监听到ViewPager、ViewPager2滑动时调用
 ```
 
-# 4、Demo演示
+# 5、Demo演示
 
-<img src="https://github.com/liujingxing/Indicator/blob/master/screen/indicator.gif" width = "360" height = "800" />
-
+<img src="https://github.com/liujingxing/Indicator/blob/master/screen/indicator.gif" width = "300" height = "666" />
 
 > [下载apk体验](https://github.com/liujingxing/Indicator/blob/master/screen/app-debug.apk)
 
+
+# 6、致谢
+
+部分思想借鉴[zhpanvip/viewpagerindicator](https://github.com/zhpanvip/viewpagerindicator)，感谢
