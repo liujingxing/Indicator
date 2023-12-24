@@ -52,6 +52,7 @@ android {
 
 dependencies {
     implementation(project(":indicator"))
+//    implementation("com.github.liujingxing:Indicator:1.0.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation("androidx.recyclerview:recyclerview:1.3.2")
     implementation("androidx.viewpager2:viewpager2:1.0.0")
