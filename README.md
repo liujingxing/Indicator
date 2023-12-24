@@ -8,6 +8,8 @@
 
 **3、支持`orientation/gravity/layoutDirection/padding`等系统内置属性**
 
+**4、仅一个`IndicatorView`类，500行代码实现**
+
 # 2、依赖
 
 ```gradle
