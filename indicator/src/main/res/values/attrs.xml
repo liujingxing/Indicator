@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="IndicatorView">
+        <attr name="android:gravity" />
+        <attr name="android:orientation" />
+        <attr name="slider_reverseLayout" format="boolean" />
+        <attr name="slider_gap" format="reference|dimension" />
+        <attr name="slide_mode" format="enum">
+            <enum name="worm" value="0" />
+            <enum name="smooth" value="1" />
+            <enum name="scale" value="2" />
+        </attr>
+        <attr name="slider_count" format="integer" />
+        <attr name="slider_round_radius" format="reference|dimension" />
+        <attr name="slider_checked_color" format="reference|color" />
+        <attr name="slider_normal_color" format="reference|color" />
+        <attr name="slider_primary_size" format="reference|dimension" />
+        <attr name="slider_secondary_size" format="reference|dimension" />
+        <attr name="slider_primary_checked_size" format="reference|dimension" />
+        <attr name="slider_secondary_checked_size" format="reference|dimension" />
+    </declare-styleable>
+
+</resources>

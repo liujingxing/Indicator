@@ -15,4 +15,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "Indicator"
 include(":app")
+include(":indicator")
  
