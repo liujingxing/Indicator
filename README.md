@@ -58,4 +58,8 @@ scrollSlider(Int,Float)  //滑动滑块，监听到ViewPager、ViewPager2滑动�
 
 # 4、Demo演示
 
+<img src="https://github.com/liujingxing/Indicator/blob/master/screen/indicator.gif" width = "360" height = "800" />
+
+
+> [下载apk体验](https://github.com/liujingxing/Indicator/blob/master/screen/app-debug.apk)
 
