@@ -22,61 +22,34 @@ dependencies {
 }
 ```
 
+# 3、方法/属性介绍
 
-# 3、xml属性介绍
+| 方法                             | xml属性                         | 可选值                         | 介绍                                          |
+|--------------------------------|-------------------------------|-----------------------------|---------------------------------------------|
+| setGravity(Int)                | gravity                       | top、left等                   | 对齐方式，左中右、上中下对齐                              | 
+| setLayoutDirection(Int)        | layoutDirection               | ltr、rtl                     | 设置从左往右或从右往左                                 | 
+| setOrientation(Int)            | orientation                   | horizontal、vertical         | 横向、竖向                                       | 
+| setReverseLayout(Boolean)      | slider_reverseLayout          | true、false                  | 是否反向布局                                      | 
+| setSlideMode(Int)              | slide_mode                    | worm、smooth、scale           | 滑动模式                                        | 
+| setSliderCount(Int)            | slider_count                  | 大于等于0                       | 滑块数量                                        | 
+| setSliderGap(Float)            | slider_gap                    | 任意数值                        | 滑块间距                                        | 
+| setRoundRadius(Float)          | slider_round_radius           | 大于等于0                       | 滑块圆角半径                                      | 
+| setSliderNormalColor(Int)      | slider_normal_color           | 任意颜色值                       | 滑块正常颜色                                      | 
+| setSliderCheckedColor(Int)     | slider_checked_color          | 任意颜色值                       | 滑块选中颜色                                      | 
+| setPrimarySize(Float)          | slider_primary_size           | 大于等于0                       | 主方向滑块正常大小                                   |             
+| setPrimaryCheckedSize(Float)   | slider_primary_checked_size   | 大于等于0                       | 主方向滑块选中大小，orientation为horizontal时，就是滑块选中的宽度 |  
+| setSecondarySize(Float)        | slider_secondary_size         | 大于等于0                       | 次方向滑块正常大小                                   | 
+| setSecondaryCheckedSize(Float) | slider_secondary_checked_size | 大于等于0                       | 次方向滑块选中大小，orientation为horizontal时，就是滑块选中的高度 | 
+| scrollSlider(Int,Float)        | 无                             | 第一个参数大于等于0，第二个参数 [0.0, 1.0) | 滑动滑块，监听到ViewPager、ViewPager2滑动时调用           | 
 
 
-```xml
-<com.ljx.view.IndicatorView                            
-    android:id="@+id/indicator_view2"                  
-    android:layout_width="wrap_content"  //wrap_content、match_parent及任意固定值  
-    android:layout_height="wrap_content"               
-    android:layout_gravity="center"                    
-    android:background="#66333333"                     
-    android:gravity="center"         //start、left、top等指
-    android:layoutDirection="ltr"      //ltr、rtl                
-    android:orientation="horizontal"    //horizontal、vertical               
-    android:padding="10dp"
-    app:slider_reverseLayout="false"    // 布局反转                             
-    app:slide_mode="smooth"        //worm、smooth、scale
-    app:slider_normal_color="@color/teal_700"     //滑块正常颜色
-    app:slider_checked_color="@color/purple_500"  //滑块选中颜色     
-    app:slider_gap="5dp"         //滑块之间的间距
-    app:slider_round_radius="5dp"       //滑块圆角半径
-    app:slider_primary_size="10dp"            //主方向滑块正常大小                            
-    app:slider_primary_checked_size="15dp"    //主方向滑块选中大小，orientation为horizontal时，就是滑块选中的宽度       
-    app:slider_secondary_size="10dp"          //次方向滑块正常大小         
-    app:slider_secondary_checked_size="10dp"  //次方向滑块选中大小，orientation为horizontal时，就是滑块选中的高度         
-    app:slider_count="5" />                   //滑块数量       
-```
-
-# 4、IndicatorView类方法介绍
-
-```java
-setGravity(Int)    //对齐方式，左中右、上中下对齐
-setLayoutDirection(Int)  //ltr、rtl
-setOrientation(Int)    //横向、竖向
-setReverseLayout(Boolean)  //是否反向布局
-setSlideMode(Int)  //滑动模式 WORM、SMOOTH、SCALE
-setSliderCount(Int)  //滑块数量
-setSliderGap(Float)   //滑块间距
-setRoundRadius(Float)  //滑块圆角半径
-setSliderNormalColor(Int)  //滑块正常颜色
-setSliderCheckedColor(Int)  //滑块选中颜色
-setPrimarySize(Float)          //主方向滑块正常大小                   
-setPrimaryCheckedSize(Float)   //主方向滑块选中大小，orientation为horizontal时，就是滑块选中的宽度           
-setSecondarySize(Float)        //次方向滑块正常大小         
-setSecondaryCheckedSize(Float) //次方向滑块选中大小，orientation为horizontal时，就是滑块选中的高度         
-scrollSlider(Int,Float)  //滑动滑块，监听到ViewPager、ViewPager2滑动时调用
-```
-
-# 5、Demo演示
+# 4、Demo演示
 
 <img src="https://github.com/liujingxing/Indicator/blob/master/screen/indicator.gif" width = "300" height = "666" />
 
 > [下载apk体验](https://github.com/liujingxing/Indicator/blob/master/screen/app-debug.apk)
 
 
-# 6、致谢
+# 5、致谢
 
 部分思想借鉴[zhpanvip/viewpagerindicator](https://github.com/zhpanvip/viewpagerindicator)，感谢
