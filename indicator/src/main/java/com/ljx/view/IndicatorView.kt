@@ -79,7 +79,7 @@ class IndicatorView @JvmOverloads constructor(
     init {
         paint.isAntiAlias = true
         val dp5 = 5f * context.resources.displayMetrics.density
-        context.obtainStyledAttributes(attrs, R.styleable.IndicatorView).use {
+        val ta = context.obtainStyledAttributes(attrs, R.styleable.IndicatorView).also {
             gravity = it.getInt(R.styleable.IndicatorView_android_gravity, 0)
             orientation = it.getInt(R.styleable.IndicatorView_android_orientation, HORIZONTAL)
             reverseLayout = it.getBoolean(R.styleable.IndicatorView_slider_reverseLayout, false)
@@ -95,6 +95,7 @@ class IndicatorView @JvmOverloads constructor(
             normalColor = it.getColor(R.styleable.IndicatorView_slider_normal_color, Color.DKGRAY)
             checkedColor = it.getColor(R.styleable.IndicatorView_slider_checked_color, Color.WHITE)
         }
+        ta.recycle()
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
