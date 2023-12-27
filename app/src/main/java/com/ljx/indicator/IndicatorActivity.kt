@@ -6,11 +6,10 @@ import android.os.Bundle
 import android.text.Editable
 import android.view.Gravity
 import android.view.View
-import androidx.activity.ComponentActivity
 import androidx.core.view.WindowCompat
 import androidx.core.widget.addTextChangedListener
 import androidx.databinding.DataBindingUtil
-import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
+import androidx.fragment.app.FragmentActivity
 import com.ljx.indicator.base.BaseAdapter
 import com.ljx.indicator.databinding.IndicatorLayoutBinding
 import com.ljx.indicator.databinding.NumberAdapterBinding
@@ -21,7 +20,7 @@ import com.ljx.view.IndicatorView
  * Date: 2023/12/24
  * Time: 14:57
  */
-class IndicatorActivity : ComponentActivity(), View.OnClickListener {
+class IndicatorActivity : FragmentActivity(), View.OnClickListener {
     private lateinit var binding: IndicatorLayoutBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,17 +42,9 @@ class IndicatorActivity : ComponentActivity(), View.OnClickListener {
         for (i in 0 until 5) {
             dataList.add(i)
         }
-        initIndicatorViews(dataList.size)
+
         viewPager2.adapter = NumberAdapter(dataList)
-        viewPager2.registerOnPageChangeCallback(object : OnPageChangeCallback() {
-            override fun onPageScrolled(
-                position: Int,
-                positionOffset: Float,
-                positionOffsetPixels: Int
-            ) {
-                getIndicatorViews().forEach { it.scrollSlider(position, positionOffset) }
-            }
-        })
+        getIndicatorViews().forEach { it.setupWithViewPager2(viewPager2) }
 
         rgOrientation.setOnCheckedChangeListener { _, checkedId ->
             changeOrientation(checkedId)
@@ -145,12 +136,6 @@ class IndicatorActivity : ComponentActivity(), View.OnClickListener {
 
     private fun getIndicatorViews() =
         mutableListOf(binding.indicatorView1, binding.indicatorView2, binding.indicatorView3)
-
-    private fun initIndicatorViews(count: Int) {
-        getIndicatorViews().forEach {
-            it.setSliderCount(count)
-        }
-    }
 
     class NumberAdapter(dataList: List<Int>) :
         BaseAdapter<Int, NumberAdapterBinding>(dataList, R.layout.number_adapter) {

@@ -15,6 +15,8 @@ import androidx.annotation.IntDef
 import androidx.annotation.IntRange
 import androidx.annotation.Px
 import androidx.core.view.ViewCompat
+import androidx.viewpager.widget.ViewPager
+import androidx.viewpager2.widget.ViewPager2
 import com.ljx.indicator.R
 
 /**
@@ -36,6 +38,9 @@ class IndicatorView @JvmOverloads constructor(
         const val HORIZONTAL = 0
         const val VERTICAL = 1
     }
+
+    private var viewPagerObserver: ViewPagerObserver? = null
+    private var viewPager2Observer: ViewPager2Observer? = null
 
     @IntDef(HORIZONTAL, VERTICAL)
     @Retention(AnnotationRetention.SOURCE)
@@ -249,6 +254,30 @@ class IndicatorView @JvmOverloads constructor(
         if (checkedColor == color) return
         checkedColor = color
         invalidate()
+    }
+
+    fun setupWithViewPager(viewPager: ViewPager?) {
+        resetObserver()
+        if (viewPager != null) {
+            viewPagerObserver = ViewPagerObserver(this, viewPager)
+            viewPagerObserver?.attach()
+        }
+    }
+
+    fun setupWithViewPager2(viewPager2: ViewPager2?) {
+        resetObserver()
+        if (viewPager2 != null) {
+            viewPager2Observer = ViewPager2Observer(this, viewPager2)
+            viewPager2Observer?.attach()
+        }
+    }
+
+    private fun resetObserver() {
+        viewPagerObserver?.detach()
+        viewPagerObserver = null
+
+        viewPager2Observer?.detach()
+        viewPagerObserver = null
     }
 
     private fun resolveShouldLayoutReverse() {
