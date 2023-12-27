@@ -233,6 +233,7 @@ class IndicatorView @JvmOverloads constructor(
         @IntRange(from = 0) position: Int,
         @FloatRange(from = 0.0, to = 1.0, toInclusive = false) positionOffset: Float
     ) {
+        if (this.position == position && this.positionOffset == positionOffset) return
         this.position = position
         this.positionOffset = positionOffset
         invalidate()
