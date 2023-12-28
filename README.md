@@ -26,25 +26,25 @@ dependencies {
 
 # 3、方法/属性介绍
 
-| 方法                             | xml属性                               | 可选值                         | 介绍                                |
-|--------------------------------|-------------------------------------|-----------------------------|-----------------------------------|
-| setupWithViewPager(ViewPager)  | 无                                   | ViewPager对象                 | 监听数据源变化，自动调整滑块数量; 监听滑动事件，调整滑块位置   |
-| setupWithViewPager(ViewPager)  | 无                                   | ViewPager2对象                | 监听数据源变化，自动调整滑块数量; 监听滑动事件，调整滑块位置   |
-| setGravity(Int)                | `android:gravity`                   | top、left等                   | 对齐方式，左中右、上中下对齐                    | 
-| setOrientation(Int)            | `android:orientation`               | horizontal、vertical         | 横向、竖向                             | 
-| setLayoutDirection(Int)        | `android:layoutDirection`           | ltr、rtl                     | 设置从左往右或从右往左                       | 
-| setReverseLayout(Boolean)      | `app:slider_reverseLayout`          | true、false                  | 是否反向布局                            | 
-| setSlideMode(Int)              | `app:slide_mode`                    | worm、smooth、scale           | 滑动模式                              | 
-| setSliderCount(Int)            | `app:slider_count`                  | 大于等于0                       | 滑块数量                              | 
-| setSliderGap(Float)            | `app:slider_gap`                    | 任意数值                        | 滑块间距                              | 
-| setRoundRadius(Float)          | `app:slider_round_radius`           | 大于等于0                       | 滑块圆角半径                            | 
-| setSliderNormalColor(Int)      | `app:slider_normal_color`           | 任意颜色值                       | 滑块正常颜色                            | 
-| setSliderCheckedColor(Int)     | `app:slider_checked_color`          | 任意颜色值                       | 滑块选中颜色                            | 
-| setPrimarySize(Float)          | `app:slider_primary_size`           | 大于等于0                       | 主方向滑块正常大小                         |             
-| setPrimaryCheckedSize(Float)   | `app:slider_primary_checked_size`   | 大于等于0                       | 主方向滑块选中大小，横向布局时为宽度                |  
-| setSecondarySize(Float)        | `app:slider_secondary_size`         | 大于等于0                       | 次方向滑块正常大小                         | 
-| setSecondaryCheckedSize(Float) | `app:slider_secondary_checked_size` | 大于等于0                       | 次方向滑块选中大小，横向布局时为高度                | 
-| scrollSlider(Int,Float)        | 无                                   | 第一个参数大雨等于0，第二个参数 [0.0, 1.0) | 滑动滑块，监听到ViewPager、ViewPager2滑动时调用 | 
+| 方法                             | xml属性                           | 可选值                         | 介绍                                |
+|--------------------------------|---------------------------------|-----------------------------|-----------------------------------|
+| setupWithViewPager(ViewPager)  | 无                               | ViewPager对象                 | 监听数据源变化，自动调整滑块数量; 监听滑动事件，调整滑块位置   |
+| setupWithViewPager(ViewPager2) | 无                               | ViewPager2对象                | 监听数据源变化，自动调整滑块数量; 监听滑动事件，调整滑块位置   |
+| setGravity(Int)                | `android:gravity`               | top、left等                   | 对齐方式，左中右、上中下对齐                    | 
+| setOrientation(Int)            | `android:orientation`           | horizontal、vertical         | 横向、竖向                             | 
+| setLayoutDirection(Int)        | `android:layoutDirection`       | ltr、rtl                     | 设置从左往右或从右往左                       | 
+| setReverseLayout(Boolean)      | `slider_reverseLayout`          | true、false                  | 是否反向布局                            | 
+| setSlideMode(Int)              | `slide_mode`                    | worm、smooth、scale           | 滑动模式                              | 
+| setSliderCount(Int)            | `slider_count`                  | 大于等于0                       | 滑块数量                              | 
+| setSliderGap(Float)            | `slider_gap`                    | 任意数值                        | 滑块间距                              | 
+| setRoundRadius(Float)          | `slider_round_radius`           | 大于等于0                       | 滑块圆角半径                            | 
+| setSliderNormalColor(Int)      | `slider_normal_color`           | 任意颜色值                       | 滑块正常颜色                            | 
+| setSliderCheckedColor(Int)     | `slider_checked_color`          | 任意颜色值                       | 滑块选中颜色                            | 
+| setPrimarySize(Float)          | `slider_primary_size`           | 大于等于0                       | 主方向滑块正常大小                         |             
+| setPrimaryCheckedSize(Float)   | `slider_primary_checked_size`   | 大于等于0                       | 主方向滑块选中大小，横向布局时为宽度                |  
+| setSecondarySize(Float)        | `slider_secondary_size`         | 大于等于0                       | 次方向滑块正常大小                         | 
+| setSecondaryCheckedSize(Float) | `slider_secondary_checked_size` | 大于等于0                       | 次方向滑块选中大小，横向布局时为高度                | 
+| scrollSlider(Int,Float)        | 无                               | 第一个参数大雨等于0，第二个参数 [0.0, 1.0) | 滑动滑块，监听到ViewPager、ViewPager2滑动时调用 | 
 
 # 4、Demo演示
 
