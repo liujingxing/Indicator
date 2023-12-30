@@ -301,7 +301,7 @@ class IndicatorView @JvmOverloads constructor(
 
     private fun drawScaleSlide(canvas: Canvas) {
         var start = layoutState.primaryStart
-        val itemDirection = layoutState.itemDirection
+        val layoutDirection = layoutState.layoutDirection
         val color = argbEvaluator.evaluate(positionOffset, checkedColor, normalColor) as Int
         val secondaryDiffSize = secondaryCheckedSize - secondarySize
         val secondaryCenterLine = layoutState.secondaryCenterLine
@@ -319,36 +319,36 @@ class IndicatorView @JvmOverloads constructor(
             } else {
                 paint.color = normalColor
             }
-            val end = start + offset * itemDirection
+            val end = start + offset * layoutDirection
             val secondaryStart = secondaryCenterLine - secondarySize / 2f
             val secondaryEnd = secondaryStart + secondarySize
             setRectF(start, end, secondaryStart, secondaryEnd)
             canvas.drawRoundRect(rectF, roundRadius, roundRadius, paint)
-            start = end + sliderGap * itemDirection
+            start = end + sliderGap * layoutDirection
         }
     }
 
     private fun drawNormal(canvas: Canvas) {
         paint.color = normalColor
         var start = layoutState.primaryStart
-        val itemDirection = layoutState.itemDirection
+        val layoutDirection = layoutState.layoutDirection
         val secondaryCenterLine = layoutState.secondaryCenterLine
         val secondaryStart = secondaryCenterLine - secondarySize / 2f
         val secondaryEnd = secondaryStart + secondarySize
         for (i in 0 until sliderCount) {
-            val end = start + primarySize * itemDirection
+            val end = start + primarySize * layoutDirection
             setRectF(start, end, secondaryStart, secondaryEnd)
             canvas.drawRoundRect(rectF, roundRadius, roundRadius, paint)
             val diff = if (i == position) (primaryCheckedSize - primarySize).coerceAtLeast(0f) else 0f
             val offset = sliderGap + diff
-            start = end + offset * itemDirection
+            start = end + offset * layoutDirection
         }
     }
 
     private fun drawWormSlider(canvas: Canvas) {
         paint.color = checkedColor
         var start = layoutState.primaryStart
-        val itemDirection = layoutState.itemDirection
+        val layoutDirection = layoutState.layoutDirection
         val secondaryCheckedSize = secondaryCheckedSize
         val slideProgress = positionOffset
         val currentPosition = position
@@ -356,10 +356,10 @@ class IndicatorView @JvmOverloads constructor(
         val offset = distance * currentPosition +
                 (distance * (slideProgress - 0.5f) * 2.0f).coerceAtLeast(0f) +
                 ((primarySize - primaryCheckedSize) / 2f).coerceAtLeast(0f)
-        start += offset * itemDirection
+        start += offset * layoutDirection
         val sliderSize = primaryCheckedSize +
                 distance * 2f * (if (slideProgress > 0.5) 1 - slideProgress else slideProgress)
-        val end = start + sliderSize * itemDirection
+        val end = start + sliderSize * layoutDirection
         val secondaryCenterLine = layoutState.secondaryCenterLine
         val secondaryStart = secondaryCenterLine - secondaryCheckedSize / 2f
         val secondaryEnd = secondaryStart + secondaryCheckedSize
@@ -370,15 +370,15 @@ class IndicatorView @JvmOverloads constructor(
     private fun drawSmoothSlider(canvas: Canvas) {
         paint.color = checkedColor
         var start = layoutState.primaryStart
-        val itemDirection = layoutState.itemDirection
+        val layoutDirection = layoutState.layoutDirection
         val currentPosition = position
         val primaryCheckedSize = primaryCheckedSize
         val secondaryCheckedSize = secondaryCheckedSize
         val distance = sliderGap + primarySize
         val offset = distance * currentPosition + distance * positionOffset +
                 ((primarySize - primaryCheckedSize) / 2f).coerceAtLeast(0f)
-        start += offset * itemDirection
-        val end = start + primaryCheckedSize * itemDirection
+        start += offset * layoutDirection
+        val end = start + primaryCheckedSize * layoutDirection
         val secondaryCenterLine = layoutState.secondaryCenterLine
         val secondaryStart = secondaryCenterLine - secondaryCheckedSize / 2f
         val secondaryEnd = secondaryStart + secondaryCheckedSize
@@ -461,18 +461,18 @@ class IndicatorView @JvmOverloads constructor(
         layoutState.primaryStart = primaryStart
         layoutState.secondaryCenterLine = secondaryStart +
                 (secondarySize.coerceAtLeast(secondaryCheckedSize)) / 2f
-        layoutState.itemDirection =
-            if (shouldReverseLayout) LayoutState.ITEM_DIRECTION_HEAD else LayoutState.ITEM_DIRECTION_TAIL
+        layoutState.layoutDirection =
+            if (shouldReverseLayout) LayoutState.LAYOUT_START else LayoutState.LAYOUT_END
     }
 
     internal class LayoutState {
         var primaryStart = 0f
         var secondaryCenterLine = 0f
-        var itemDirection = 1
+        var layoutDirection = 1
 
         companion object {
-            const val ITEM_DIRECTION_HEAD = -1
-            const val ITEM_DIRECTION_TAIL = 1
+            const val LAYOUT_START = -1
+            const val LAYOUT_END = 1
         }
     }
 }

@@ -8,7 +8,8 @@
 
 **3、支持`orientation/gravity/layoutDirection/padding`等系统内置属性**
 
-**4、仅一个`IndicatorView`类，500行代码实现**
+**4、支持绑定ViewPager/ViewPager2，自动监听数据源变化及滑动事件，并自动调整滑块数量及位置**
+
 
 # 2、依赖
 
