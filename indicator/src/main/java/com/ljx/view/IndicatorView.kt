@@ -180,32 +180,36 @@ class IndicatorView @JvmOverloads constructor(
         invalidate()
     }
 
-    fun setPrimarySize(@Px @FloatRange(from = 0.0) size: Float) {
-        if (primarySize == size) return
+    @JvmOverloads
+    fun setSliderPrimarySize(
+        @Px @FloatRange(from = 0.0) size: Float = primarySize,
+        @Px @FloatRange(from = 0.0) checkedSize: Float = primaryCheckedSize,
+    ) {
+        if (primarySize == size && primaryCheckedSize == checkedSize) return
         primarySize = size
+        primaryCheckedSize = checkedSize
         requestLayout()
         invalidate()
     }
 
-    fun setPrimaryCheckedSize(@Px @FloatRange(from = 0.0) size: Float) {
-        if (primaryCheckedSize == size) return
-        primaryCheckedSize = size
-        requestLayout()
-        invalidate()
+    fun setSliderPrimaryCheckedSize(@Px @FloatRange(from = 0.0) size: Float) {
+        setSliderPrimarySize(checkedSize = size)
     }
 
-    fun setSecondarySize(@Px @FloatRange(from = 0.0) size: Float) {
-        if (secondarySize == size) return
+    @JvmOverloads
+    fun setSliderSecondarySize(
+        @Px @FloatRange(from = 0.0) size: Float = secondarySize,
+        @Px @FloatRange(from = 0.0) checkedSize: Float = secondaryCheckedSize,
+    ) {
+        if (secondarySize == size && secondaryCheckedSize == checkedSize) return
         secondarySize = size
+        secondaryCheckedSize = checkedSize
         requestLayout()
         invalidate()
     }
 
-    fun setSecondaryCheckedSize(@Px @FloatRange(from = 0.0) size: Float) {
-        if (secondaryCheckedSize == size) return
-        secondaryCheckedSize = size
-        requestLayout()
-        invalidate()
+    fun setSliderSecondaryCheckedSize(@Px @FloatRange(from = 0.0) size: Float) {
+        setSliderSecondarySize(checkedSize = size)
     }
 
     fun setSliderGap(@Px size: Float) {
@@ -228,7 +232,7 @@ class IndicatorView @JvmOverloads constructor(
         invalidate()
     }
 
-    fun setRoundRadius(@FloatRange(from = 0.0) radius: Float) {
+    fun setSliderRoundRadius(@FloatRange(from = 0.0) radius: Float) {
         if (roundRadius == radius) return
         roundRadius = radius
         invalidate()
@@ -244,16 +248,19 @@ class IndicatorView @JvmOverloads constructor(
         invalidate()
     }
 
-    fun setSliderNormalColor(@ColorInt color: Int) {
-        if (normalColor == color) return
-        normalColor = color
+    @JvmOverloads
+    fun setSliderColor(
+        @ColorInt normalColor: Int = this.normalColor,
+        @ColorInt checkedColor: Int = this.checkedColor
+    ) {
+        if (this.normalColor == normalColor && this.checkedColor == checkedColor) return
+        this.normalColor = normalColor
+        this.checkedColor = checkedColor
         invalidate()
     }
 
     fun setSliderCheckedColor(@ColorInt color: Int) {
-        if (checkedColor == color) return
-        checkedColor = color
-        invalidate()
+        setSliderColor(checkedColor = color)
     }
 
     fun setupWithViewPager(viewPager: ViewPager?) {

@@ -64,23 +64,23 @@ class IndicatorActivity : FragmentActivity(), View.OnClickListener {
 
         etPrimarySize.addTextChangedListener { editable ->
             getIndicatorViews().forEach {
-                it.setPrimarySize(editable.getInt(0).dp)
+                it.setSliderPrimarySize(editable.getInt(0).dp)
             }
         }
         etPrimaryCheckedSize.addTextChangedListener { editable ->
             getIndicatorViews().forEach {
-                it.setPrimaryCheckedSize(editable.getInt(0).dp)
+                it.setSliderPrimarySize(checkedSize = editable.getInt(0).dp)
             }
         }
 
         etSecondarySize.addTextChangedListener { editable ->
             getIndicatorViews().forEach {
-                it.setSecondarySize(editable.getInt(0).dp)
+                it.setSliderSecondarySize(editable.getInt(0).dp)
             }
         }
         etSecondaryCheckedSize.addTextChangedListener { editable ->
             getIndicatorViews().forEach {
-                it.setSecondaryCheckedSize(editable.getInt(0).dp)
+                it.setSliderSecondarySize(checkedSize = editable.getInt(0).dp)
             }
         }
 
@@ -91,7 +91,7 @@ class IndicatorActivity : FragmentActivity(), View.OnClickListener {
         }
         etRoundRadiusSize.addTextChangedListener { editable ->
             getIndicatorViews().forEach {
-                it.setRoundRadius(editable.getInt(0).dp.toFloat())
+                it.setSliderRoundRadius(editable.getInt(0).dp)
             }
         }
     }
