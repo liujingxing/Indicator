@@ -55,7 +55,7 @@ class ViewPagerObserver(
     private fun setAdapter(newAdapter: PagerAdapter?) {
         if (adapter === newAdapter) return
         if (autoRefresh) {
-            dataSetObserver?.let { adapter?.registerDataSetObserver(it) }
+            dataSetObserver?.let { adapter?.unregisterDataSetObserver(it) }
         }
         if (newAdapter != null && autoRefresh) {
             // Register our observer on the new adapter
