@@ -20,7 +20,7 @@ allprojects {
 }
 
 dependencies {
-    implementation 'com.github.liujingxing:Indicator:1.0.0'  
+    implementation 'com.github.liujingxing:Indicator:1.0.3'  
 }
 ```
 
